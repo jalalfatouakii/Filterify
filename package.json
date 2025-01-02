@@ -4,7 +4,9 @@
   "main": "proxy-server.js",
   "scripts": {
     "test": "node proxy-server.js",
-    "start": "node proxy-server.js"
+    "start": "node proxy-server.js",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
