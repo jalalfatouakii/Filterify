@@ -1,6 +1,6 @@
 
 
-const stringurl = 'https://main.d3ksc5due81bx1.amplifyapp.com/';
+const stringurl = 'https://amplify.d3ksc5due81bx1.amplifyapp.com/';
 //const stringurl = 'http://localhost:5001/';
 let clientId = ''; // Global variable to store the fetched client ID
 
