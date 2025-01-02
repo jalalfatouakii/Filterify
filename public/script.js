@@ -1,6 +1,6 @@
 
 
-const stringurl = 'https://www.filterify.me/';
+const stringurl = 'https://main.d3ksc5due81bx1.amplifyapp.com/';
 //const stringurl = 'http://localhost:5001/';
 let clientId = ''; // Global variable to store the fetched client ID
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     
     
     const redirectUri = `${stringurl}callback`;
-    const scopes = 'playlist-read-private playlist-modify-public playlist-modify-private user-read-email user-read-private user-top-read playlist-read-private';
+    const scopes = 'playlist-read-private user-read-email user-read-private user-top-read playlist-read-collaborative';
     
     
 
@@ -816,7 +816,7 @@ document.addEventListener('DOMContentLoaded',async function () {
        // Replace with your Spotify Client ID
     await fetchClientId();
     const redirectUri = `${stringurl}callback`;
-    const scopes = 'playlist-read-private playlist-modify-public playlist-modify-private user-read-email user-read-private user-top-read playlist-read-private';
+    const scopes = 'playlist-read-private user-read-email user-read-private user-top-read playlist-read-collaborative';
     const loginBtn = document.getElementById('login-btn');
     let accessToken = '';
     let matchinessPercentage = 0
@@ -1330,7 +1330,7 @@ document.addEventListener('DOMContentLoaded',async function (){
       // Replace with your Spotify Client ID
     await fetchClientId();
     const redirectUri = `${stringurl}callback`;
-    const scopes = 'playlist-read-private playlist-modify-public playlist-modify-private user-read-email user-read-private user-top-read playlist-read-private';
+    const scopes = 'playlist-read-private user-read-email user-read-private user-top-read playlist-read-collaborative';
     const loginBtn = document.getElementById('login-btnn');
     let accessToken = '';
     checkinfos()
@@ -1401,6 +1401,7 @@ document.addEventListener('DOMContentLoaded',async function (){
             throw new Error('Failed to fetch user data');
           }
           return response.json();
+          
         })
         .then(data => {
            // console.log(data);  // Handle the response data here
@@ -1455,12 +1456,14 @@ document.addEventListener('DOMContentLoaded',async function (){
             const trackInfoDiv = document.getElementById('statos');
             
             // Fetch the user's most listened artists
-            fetch(`https://api.spotify.com/v1/me/top/artists?&time_range=${timeRange}`, {
+            fetch(`https://api.spotify.com/v1/me/top/artists?&time_range=short_term`, {
                 method: 'GET',
                 headers: headers
             })
             .then(response => response.json())
+            
             .then(artistData => {
+                console.log(artistData);
                // console.log('Most listened artist:', artistData.items);
                 
                 /*
