@@ -1462,6 +1462,14 @@ document.addEventListener('DOMContentLoaded',async function (){
             })
             .then(response => response.json())
             .then(artistData => {
+                console.log(artistData)
+                console.log('number:', artistData.items.length);
+                if (artistData.items.length === 0) {
+                    const noArtistsMessage = document.createElement('p');
+                    noArtistsMessage.textContent = 'No artists listened to.';
+                    trackInfoDiv.appendChild(noArtistsMessage);
+                    return; // Exit the function if no artists are found
+                }
                // console.log('Most listened artist:', artistData.items);
                 
                 /*
@@ -1608,6 +1616,12 @@ document.addEventListener('DOMContentLoaded',async function (){
             })
             .then(response => response.json())
             .then(trackData => {
+                if (trackData.items.length === 0) {
+                    const noArtistsMessage = document.createElement('p');
+                    noArtistsMessage.textContent = 'No tracks listened to.';
+                    trackInfoDiv.appendChild(noArtistsMessage);
+                    return; // Exit the function if no artists are found
+                }
                // console.log('Most listened track:', trackData.items);
                 const josh = document.createElement('h2');
                 const trackInfo = document.createElement('div');
