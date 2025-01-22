@@ -1,9 +1,9 @@
 const stringurl = 'https://www.filterify.me/';
 let clientId = '';
 async function fetchClientId() {
-    try {
-      
-      const response = await fetch("https://backend-spotitools.onrender.com/api/client-id");
+    try { 
+      const response = await fetch(`${stringurl}client-id`);
+      //const response = await fetch("https://backend-spotitools.onrender.com/api/client-id");
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }

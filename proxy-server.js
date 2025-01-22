@@ -11,6 +11,14 @@ app.get('/callback', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'callback.html'));
 });
 
+app.get('/client-id', (req, res) => {
+    const clientId = process.env.CLIENT_ID;
+    if (!clientId) {
+        return res.status(500).send('Client ID not found');
+    }
+    res.send({ clientId: clientId });
+});
+
 app.get('/auth-callback', (req, res) => {
     const accessToken = req.query.access_token;
     res.send(`

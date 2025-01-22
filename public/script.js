@@ -7,7 +7,7 @@ let clientId = ''; // Global variable to store the fetched client ID
 async function fetchClientId() {
     try {
       
-      const response = await fetch("https://backend-spotitools.onrender.com/api/client-id");
+      const response = await fetch(`${stringurl}client-id`);
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
